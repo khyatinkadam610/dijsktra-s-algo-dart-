@@ -1,10 +1,9 @@
 import 'package:test/test.dart';
 
 void main() {
-  List dijkstra(var vertices) {
-    int start, i;
+  List dijkstra(var vertices, int start) {
+    int i;
     var n = 6;
-    start = 0;
 
     var unvisited = List.generate(n, (index) => index);
     // print(unvisited);
@@ -73,7 +72,7 @@ void main() {
       [0, 0, 0, 2, 0, 5],
       [0, 0, 0, 0, 0, 0],
     ];
-    var actual = dijkstra(vertices);
+    var actual = dijkstra(vertices, 0);
     expect(actual, expected);
     var expected1 = [0, 45, 45, 10, 25, 999];
     var vertices1 = [
@@ -84,7 +83,7 @@ void main() {
       [0, 20, 35, 0, 0, 0],
       [0, 0, 0, 0, 0, 30],
     ];
-    var actual1 = dijkstra(vertices1);
+    var actual1 = dijkstra(vertices1, 0);
     expect(actual1, expected1);
   });
 }
